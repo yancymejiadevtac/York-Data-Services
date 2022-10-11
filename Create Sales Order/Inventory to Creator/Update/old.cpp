@@ -59,25 +59,19 @@ for each  soItemsData in soLineItems
 }
 creatorMaps.put("Line_Items",itemLists);
 creatorMaps.put("Inventory_Sales_Order_ID",salesorder.get("salesorder_id"));
-creatorMaps.put("Discount", IFNULL(salesorder.get("discount"),0));
 /* Push To Creator*/
 try 
 {
-	createRecord = zoho.creator.createRecord("yds2019","quote-manager","Sales_Order",creatorMaps,Map(),"creator_auth1");
-	info "Success: " + createRecord;
-	/*Get Created ID From Creator*/
-	creatorID = createRecord.get("data").get("ID");
-	/*Mapping*/
-	inventoryfinalLists = List();
-	finalMaps = Map();
-	inventoryIDMaps = Map();
-	inventoryIDMaps.put("api_name","cf_creator_sales_order_id");
-	inventoryIDMaps.put("value",creatorID);
-	inventoryfinalLists.add(inventoryIDMaps);
-	finalMaps.put("custom_fields",inventoryfinalLists);
-	/*Update Record to Add Sales Order */
-	updateSOInventory = zoho.inventory.updateRecord("salesorders","20081056950",salesorder.get("salesorder_id"),finalMaps,"zom");
-	info "Updated: " + updateSOInventory;
+	for each  fetchID in salesorder.get("custom_fields")
+	{
+		if(fetchID.get("api_name") == "cf_creator_sales_order_id")
+		{
+			updateID = fetchID.get("value");
+		}
+	}
+	info "Creator ID: " + updateID;
+	updateRecord = zoho.creator.updateRecord("yds2019","quote-manager","Sales_Order_Report",updateID.toLong(),creatorMaps,Map(),"creator_auth");
+	info "Success: " + updateRecord;
 }
 catch (e)
 {
