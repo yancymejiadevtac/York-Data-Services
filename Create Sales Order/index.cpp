@@ -463,7 +463,7 @@ totalDiscount = IFNULL(input.Monthly_Discount_Total,0) + IFNULL(input.Upfront_Di
 creatorMaps.put("discount_type","entity_level");
 creatorMaps.put("discount", totalDiscount.toNumber());
 
-
+//
 //Note Mapping From Service 1 to Service 3 is Checked and All Good
 /*Carriage and Shipping Charge*/
 creatorMaps.put("shipping_charge",IFNULL(input.Total_Carriage,0));
