@@ -1,0 +1,93 @@
+/*Standard Quote
+Service 1
+Up_Front_Sub_Total
+Service_Charges_Sub_Total
+Service_Sub_Total
+    Disable workflow
+        OnUserInput - Engineering1 - Hours
+        OnUserInput - MonthlyDiscountType
+        OnUserInput - Equipments1 - Price
+        OnUserInput - SCharges3 - Service
+        OnUserInput - Equipments3 - Equipment
+        OnUserInput - Engineering4 - Hours
+        OnRowDelete - Engineering4
+        OnUserInput - Add another service 3
+        OnUserInput - Equipments1 - Equipment
+        OnUserInput - Equipments3 - Price
+        OnRowDelete - SCharges1
+        OnRowDelete - SetupFees2
+        OnUserInput - SetupFees3 - Set Up
+        OnUserInput - Equipments4 - Equipment
+        OnUserInput - ServiceCategory3
+        onUserInput - SetupFee2 - Quantity
+        onUSerInput - SetupFee1 - Fee
+        onUSerInput - SetupFee4 - Quantity
+        onUserInput - SetupFee3 - Quantity
+        OnRowDelete - Engineering3
+        OnUserInput - Engineering3 - Hours
+        OnRowDelete - Engineering2
+        OnUserInput - Engineering1 - Rate
+        OnUserInput - Equipments4 - Qty
+        OnUserInput - Equipments2 - Equipment
+        OnUserInput - UpfrontDiscount
+        OnUserInput - ServiceCategory2
+        OnRowDelete - Equipments3
+        OnUserInput - SCharges2 - Service
+        onUserInput - SCharges2 - Quantity
+        OnUserInput - Carriage 1
+        onUserInput - SCharges3 - MOCharges - Total
+        onUserInput - SetupFee4 - Fee
+        OnUserInput - Add another service 2
+        OnRowDelete - Equipments4
+        OnUserInput - SetupFees2 - Set Up
+        OnUserInput - Equipments2 - Price
+        onUserInput - SCharges2 - MOServiceFee - Total
+        onUserInput - SetUpFee3 - Fee
+        OnUserInput - ServiceCategory1
+        onUserInput - SCharges1 - MOServiceFee - Total
+        OnUserInput - Engineering1 - Engineering
+        OnUserInput - Engineering4 - Engineering
+        OnUserInput - Add another service 1
+        OnLoad/Creation_Editing - Field Rules
+        OnUserInput - Engineering3 - Engineering
+        OnUserInput - Engineering2 - Hours
+        OnRowDelete - Equipments1
+        OnUserInput - UpfrontDiscountType
+        OnRowDelete - SCharges4
+        OnUserInput - Carriage 3
+        OnUserInput - Equipments3 - Qty
+        OnUserInput - Engineering4 - Rate
+        OnUserInput - Carriage 2
+        onUSerInput - SCharges4 - MOService Fee - Total
+        OnRowDelete - SetupFees1
+        onUserInput - SCharges1 - Quantity
+        onUserInput - SCharges3 - Quantity
+        OnRowDelete - SCharges3
+        OnUserInput - Equipments1 - Qty
+        OnRowDelete - SCharges2
+        OnUserInput - SCharges4 - Service
+        OnRowDelete - Equipments2
+        OnUserInput - Engineering2 - Engineering
+        OnUserInput - SCharges1 - Service
+        OnUserInput - SetupFees1 - Set Up
+        OnUserInput - Engineering2 - Rate
+        OnRowDelete - SetupFees3
+        OnRowDelete - Engineering1
+        OnUserInput - MonthlyDiscount
+        OnUserInput - SetupFees4 - Set Up
+        OnUserInput - Equipments4 - Price
+        OnUserInput - Carriage 4
+        OnUserInput - Equipments2 - Qty
+        OnUserInput - ServiceCategory4
+        OnUserInput - Engineering3 - Rate
+        onUSerInput - SetupFee1 - Quantity
+        onUSerInput - SetupFee2 - Fee
+        OnRowDelete - SetupFees4
+        onUserInput - SCharges4 - Quantity
+        
+
+        
+Service 2
+
+*/
+
