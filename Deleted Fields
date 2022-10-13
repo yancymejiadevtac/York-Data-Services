@@ -1,9 +1,37 @@
 /*Standard Quote
-Service 1
-Up_Front_Sub_Total
-Service_Charges_Sub_Total
-Service_Sub_Total
-    Disable workflow
+Service 1:
+    Up_Front_Sub_Total
+    Service_Charges_Sub_Total
+    Service_Sub_Total
+   
+        
+
+        
+Service 2:
+    Up_Front_Sub_Total_2
+    Service_Charges_Sub_Total_2
+    Service_Sub_Total_2
+
+Service 3:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Disable workflow
         OnUserInput - Engineering1 - Hours
         OnUserInput - MonthlyDiscountType
         OnUserInput - Equipments1 - Price
@@ -84,10 +112,6 @@ Service_Sub_Total
         onUSerInput - SetupFee2 - Fee
         OnRowDelete - SetupFees4
         onUserInput - SCharges4 - Quantity
-        
-
-        
-Service 2
 
 */
 
