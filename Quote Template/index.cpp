@@ -1,3 +1,5 @@
+/*GENERATE Quote line items for the quote record template*/
+
 //Service 1
 //Acc Table Variab;e
 acc_table = "";
