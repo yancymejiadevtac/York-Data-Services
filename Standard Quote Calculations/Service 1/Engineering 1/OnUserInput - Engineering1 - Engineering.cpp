@@ -1,44 +1,24 @@
-row.Fee=IFNULL(row.Set_Up.Set_Up_Cost,0.00);
-// TAX
+row.Rate=IFNULL(row.Engineering.Hourly_Rate,0.00);
+row.Total=IFNULL(row.Engineering.Hourly_Rate,0.00) * IFNULL(row.Hours,0.00);
+//Vat
 vat = Global_Settings[KEY == "DEFAULT_VAT"].VALUE.toDecimal();
 vat = IFNULL(vat,0.00) / 100;
-//computation
-if(input.sc0 == true)
+//
+if(row.Discount_Type.contains("Percentage"))
 {
-	totalSetUpItem = IFNULL(row.Fee,0) * IFNULL(row.sf_Quantity0,0);
-	row.sf_Total0 = totalSetUpItem;
-	if(row.Discount_Type.contains("Percentage"))
-	{
-		discount = IFNULL(row.Discount_Amount,0) / 100;
-		row.Total_Discount=discount * totalSetUpItem;
-	}
-	else if(row.Discount_Type.contains("Fixed"))
-	{
-		row.Total_Discount=IFNULL(row.Discount_Amount,0);
-	}
-	else
-	{
-		row.Total_Discount=0;
-	}
+	discount = IFNULL(row.Discount_Amount,0) / 100;
+	totalDiscount = IFNULL(row.Total,0) * discount;
+	row.Total_Discount = totalDiscount;
 }
-else if(input.sc0 == false)
+else if(row.Discount_Type.contains("Fixed"))
 {
-	totalSetUpItem = IFNULL(row.Fee,0);
-	row.sf_Total0 = totalSetUpItem;
-	if(row.Discount_Type.contains("Percentage"))
-	{
-		discount = IFNULL(row.Discount_Amount,0) / 100;
-		row.Total_Discount=discount * totalSetUpItem;
-	}
-	else if(row.Discount_Type.contains("Fixed"))
-	{
-		row.Total_Discount=IFNULL(row.Discount_Amount,0);
-	}
-	else
-	{
-		row.Total_Discount=0;
-	}
+	row.Total_Discount = IFNULL(row.Discount_Amount,0);
 }
+else
+{
+	row.Total_Discount = 0;
+}
+//
 // Total Set Up
 totalSetUpNet = 0;
 totalSetUpDiscount = 0;
