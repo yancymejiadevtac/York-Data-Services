@@ -2,12 +2,12 @@
 vat = Global_Settings[KEY == "DEFAULT_VAT"].VALUE.toDecimal();
 vat = IFNULL(vat,0.00) / 100;
 //Auto-populate fields
-// row.Supplier_Name=IFNULL(row.Service.Supplier_Name,"");
 row.Monthly_Service_Fee=IFNULL(row.Service.Monthly_Service_Fee,0.00);
-if(input.sc1 == true)
+//Auto-populate fields
+if(input.sc3 == true)
 {
-	totalSChargeItem = IFNULL(row.sc_Quantity1,0) * IFNULL(row.Monthly_Service_Fee,0);
-	row.sc_Total1=totalSChargeItem;
+	totalSChargeItem = IFNULL(row.sc_Quantity3,0) * IFNULL(row.Monthly_Service_Fee,0);
+	row.sc_Total3 = totalSChargeItem;
 	if(row.Discount_Type.contains("Percentage"))
 	{
 		discount = IFNULL(row.Discount_Amount,0) / 100;
@@ -15,17 +15,17 @@ if(input.sc1 == true)
 	}
 	else if(row.Discount_Type.contains("Fixed"))
 	{
-		row.Total_Discount= IFNULL(row.Discount_Amount,0);
+		row.Total_Discount=IFNULL(row.Discount_Amount,0);
 	}
 	else
 	{
 		row.Total_Discount=0;
 	}
 }
-else if(input.sc1 == false)
+else if(input.sc3 == false)
 {
 	totalSChargeItem = IFNULL(row.Monthly_Service_Fee,0);
-	row.sc_Total1=totalSChargeItem;
+	row.sc_Total3=totalSChargeItem;
 	if(row.Discount_Type.contains("Percentage"))
 	{
 		discount = IFNULL(row.Discount_Amount,0) / 100;
@@ -33,26 +33,27 @@ else if(input.sc1 == false)
 	}
 	else if(row.Discount_Type.contains("Fixed"))
 	{
-		row.Total_Discount = IFNULL(row.Discount_Amount,0);
+		row.Total_Discount=IFNULL(row.Discount_Amount,0);
 	}
 	else
 	{
 		row.Total_Discount=0;
 	}
 }
-if(input.Service_Charges_2.count() > 0)
+//Total
+if(input.Service_Charges_4.count() > 0)
 {
 	totalNet = 0;
 	totalDiscount = 0;
-	for each  serviceData in input.Service_Charges_2
+	for each  serviceData in input.Service_Charges_4
 	{
-		totalNet = totalNet + IFNULL(serviceData.sc_Total1,0);
+		totalNet = totalNet + IFNULL(serviceData.sc_Total3,0);
 		totalDiscount = totalDiscount + IFNULL(serviceData.Total_Discount,0);
 	}
 	totalVat = totalNet * vat;
 	totalRecurring = totalNet - totalDiscount;
-	input.Recurring_service_charges_Net_2 = totalNet;
-	input.Recurring_service_charges_Discount_2 = totalDiscount;
-	input.recurring_Vat_2 = totalVat;
-	input.Recurring_service_charges_Total_2 = totalRecurring + totalVat;
+	input.Recurring_service_charges_Net_4 = totalNet;
+	input.Recurring_service_charges_Discount_4 = totalDiscount;
+	input.recurring_Vat_4 = totalVat;
+	input.Recurring_service_charges_Total_4 = totalRecurring + totalVat;
 }
