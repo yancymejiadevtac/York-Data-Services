@@ -72,7 +72,7 @@ if(input.Service_Engineering.count() > 0)
 		totalEngineeringDiscount += IFNULL(engineeringData.Total_Discount,0);
 	}
 }
-// OVERALL TOTAL
+// OVERALL TOTAL/
 totalNet = totalSetUpNet + totalEquipmentNet + totalEngineeringNet;
 totalDiscount = totalSetUpDiscount + totalEqupmentDiscount + totalEngineeringDiscount;
 totalVat = totalNet * vat;
